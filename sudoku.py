@@ -48,6 +48,7 @@ click_position_x = -1 # posição do clique do mouse (-1 é fora do tabuleiro)
 click_position_y = -1
 numero = 0 # variável numero vai ignorar o valor 0 pois não existe no sudoku
 
+
 # mapear o tabuleiro com mmouse
 def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
     quadrado = 66.7 # quadrado tem 66.7 pixels
