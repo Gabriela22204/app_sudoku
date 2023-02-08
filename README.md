@@ -1,11 +1,12 @@
 # Sudoku
 
-É um aplicativo para jogar sudoku.
+This is a Sudoku game.
 
-É gerado em torno de 40 números aleatórios.
-Dificuldade: médio/difícil
+Generates around of 40 random combination of numbers.
 
-Foi desenvolvido em python utilizando o módulo PyCharm.
+Dificulty: medium/hard
+
+Developed using Python and Pygame module.
 
 
 
