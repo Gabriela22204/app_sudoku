@@ -255,7 +255,8 @@ def Escrevendo_Numeros(window, jogo_data):
                 if jogo_data[nn][n] == 'X':
                     palavra = font.render(str(jogo_data[nn][n]), True, vermelho)
                     window.blit(palavra, (ajuste + n * quadrado, ajuste - 5 + nn * quadrado))
-                 
+
+      
 #corrige o número digitado (caso for no numpad com números com colchetes) para número padrão
 
 def Digitando_Numero(numero):
@@ -265,25 +266,27 @@ def Digitando_Numero(numero):
         numero = int(numero) # num normal
     return numero
 
+
 def Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero):
     x = click_position_x
     y = click_position_y
     
-    # se o clique do mouse for dentro da localização do tabuleiro 0 a 9, se os números escondidos for n então preenche com o número correto
-    # se digitar número errado aparece X
+    # se o clique do mouse for dentro da localização do tabuleiro 0 a 9, se o jogo_data for n e o número for diferente de 0
+    
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
-        jogo_data[y][x] = numero
+        jogo_data[y][x] = numero # então preenche com o número correto
         numero = 0
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == numero and numero != 0:
         pass
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
-        jogo_data[y][x] = 'X'
+        jogo_data[y][x] = 'X' # se digitar número errado aparece X
         numero = 0
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'x' and numero != 0:
         jogo_data[y][x] = numero
         numero = 0
     return jogo_data, numero
-    
+
+
 def Click_bt_Restart(mouse_position_x, mouse_position_y, click_last_status, click, tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data):
     x = mouse_position_x
     y = mouse_position_y
@@ -320,7 +323,6 @@ while True:
     Botao_Restart(window)
     tabuleiro_data, tabuleiro_preenchido = Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido)
     jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, escondendo_numeros)
-    
     Escrevendo_Numeros(window, jogo_data)
     numero = Digitando_Numero(numero)
     jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
