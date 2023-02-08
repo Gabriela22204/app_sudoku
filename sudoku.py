@@ -1,4 +1,3 @@
-# coding:utf-8
 import pygame as pg
 import pandas as pd
 import random
@@ -32,7 +31,7 @@ tabuleiro_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
                   ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
                   ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
 
-# números preenchidos em branco
+# numeros preenchidos em branco
 jogo_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
              ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
              ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
@@ -47,12 +46,12 @@ jogo_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
 escondendo_numeros = True # loop
 tabuleiro_preenchido = True # loop
 click_last_status = False 
-click_position_x = -1 # posição do clique do mouse (-1 é fora do tabuleiro)
+click_position_x = -1 # position do clique do mouse -1 =fora
 click_position_y = -1
-numero = 0 # variável criado para ignorar o 0 pois não existe no sudoku
+numero = 0 # var criado para ignorar o 0 pois n existe no sudoku
 
 
-# mapear o tabuleiro com mmouse
+# mapear o tabuleiro com mouse
 def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
     quadrado = 66.7 # quadrado tem 66.7 pixels
     ajuste = 50 # arredondar pra 50
@@ -85,25 +84,25 @@ def Tabuleiro(window):
     pg.draw.rect(window, preto, (317, 50, 67, 600), 2)
     pg.draw.rect(window, preto, (517, 50, 67, 600), 2)
 
-# botão restart
+# botao restart
 def Botao_Restart(window):
     pg.draw.rect(window, verde, (700, 50, 250, 100))
     palavra = font.render('Restart', True, preto)
     window.blit(palavra, (725, 75))
 
-# verifica os números que estão na linha escolhida
+# verifica os numeros que estao na linha escolhida
 def Linha_Escolhida(tabuleiro_data, y):
     linha_sorteada = tabuleiro_data[y]
     return linha_sorteada
 
-# mesma coisa porém com coluna
+# mesma coisa porem com coluna
 def Coluna_Escolhida(tabuleiro_data, x):
     coluna_sorteada = []
     for n in range(8):
         coluna_sorteada.append(tabuleiro_data[n][x])
     return coluna_sorteada
 
-# verifica onde está o número dentro do tabuleiro de 0 a 8
+# verifica onde esta o numero dentro do tabuleiro de 0 a 8
 def Quadrante_Selecionado(tabuleiro_data, x, y):
     quadrante = []
     if x >= 0 and x <=2 and y >= 0 and y <= 2: # primeiro quadrante
@@ -144,7 +143,7 @@ def Quadrante_Selecionado(tabuleiro_data, x, y):
                           tabuleiro_data[8][6], tabuleiro_data[8][7], tabuleiro_data[8][8]])
     return quadrante
 
-# vai preencher os números de quadrantes chamadas(ex quadrante 1, 2, 3...)  
+# vai preencher os numeros de quadrantes chamadas(ex quadrante 1, 2, 3...)  
 def Preenchendo_Quadrantes(tabileiro_data, x2, y2):
     quadrante_preenchido = True
     loop = 0
@@ -196,7 +195,7 @@ def Reiniciando_Tabuleiro_Data(tabuleiro_data):
                     ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
     return tabuleiro_data
 
-# preenche o tabuleiro com os números corretos
+# preenche o tabuleiro com os numeros corretos
 def Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido):
     while tabuleiro_preenchido == True:
         # Quadrante 1
@@ -245,7 +244,7 @@ def Escondendo_Numeros(tabuleiro_data, jogo_data, escondendo_numeros):
     return jogo_data, escondendo_numeros      
 
 
-#substitui o n de jogo_data e copia, escreve os números dentro dos quadrados
+#substitui o n de jogo_data e copia, escreve os numeros dentro dos quadrados
 
 def Escrevendo_Numeros(window, jogo_data):
     quadrado = 66.7
@@ -260,7 +259,7 @@ def Escrevendo_Numeros(window, jogo_data):
                     window.blit(palavra, (ajuste + n * quadrado, ajuste - 5 + nn * quadrado))
 
       
-#corrige o número digitado (caso for no numpad com números com colchetes) para número padrão
+#corrige o numero digitado (caso for no numpad com numeros com colchetes) para numero padrao
 
 def Digitando_Numero(numero):
     try:
@@ -274,15 +273,15 @@ def Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_
     x = click_position_x
     y = click_position_y
     
-    # se o clique do mouse for dentro da localização do tabuleiro 0 a 9, se o jogo_data for n e o número for diferente de 0
+    # se o clique do mouse for dentro da localizacao do tabuleiro 0 a 9, se o jogo_data for n e o numero for diferente de 0
     
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
-        jogo_data[y][x] = numero # então preenche com o número correto
+        jogo_data[y][x] = numero # entao preenche com o numero correto
         numero = 0
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == numero and numero != 0:
         pass
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
-        jogo_data[y][x] = 'X' # se digitar número errado aparece X
+        jogo_data[y][x] = 'X' # se digitar numero errado aparece X
         numero = 0
     if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'x' and numero != 0:
         jogo_data[y][x] = numero
@@ -310,12 +309,12 @@ while True:
             numero = pg.key.name(event.key)
             
             
-    # declarando variável da posição
+    # declarando var da posicao
     mouse = pg.mouse.get_pos()
     mouse_position_x = mouse[0]
     mouse_position_y = mouse[1]
     
-    # declarando variável do mouse, identificando o clique do mouse
+    # declarando var do mouse, identificando o clique do mouse
     click = pg.mouse.get_pressed()
     
     # Jogo
@@ -334,7 +333,7 @@ while True:
     
     
     
-    # Click Last Status, verificando o estado do último clique 
+    # Click Last Status, verificando o estado do ultimo clique 
     if click[0] == True:
         click_last_status = True
     else:
