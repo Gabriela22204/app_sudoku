@@ -226,8 +226,62 @@ def Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido):
         if count == 81:
             tabuleiro_preenchido = False
     return tabuleiro_data, tabuleiro_preenchido
-            
-        
+
+
+def Escondendo_Numeros(tabuleiro_data, jogo_data, escondendo_numeros):
+    if escondendo_numeros == True:
+        for n in range(40):
+            sorteando_numero = True
+            while sorteando_numero == True:
+                x = random.randint(0, 8)
+                y = random.randint(0, 8)
+                if jogo_data[y][x] == 'n':
+                    jogo_data[y][x] = tabuleiro_data[y][x]
+                    sorteando_numero = False
+        escondendo_numeros = False
+    return jogo_data, escondendo_numeros      
+
+#substitui o n por números
+def Escrevendo_Numeros(window, jogo_data):
+    quadrado = 66.7
+    ajuste = 67
+    for nn in range(9):
+        for n in range(9):
+            if jogo_data[nn][n] != 'n':
+                palavra = font.render(str(jogo_data[nn][n]), True, preto)
+                window.blit(palavra, (ajuste + n * quadrado, ajuste - 5 + nn * quadrado))
+                if jogo_data[nn][n] == 'X':
+                    palavra = font.render(str(jogo_data[nn][n]), True, vermelho)
+                    window.blit(palavra, (ajuste + n * quadrado, ajuste - 5 + nn * quadrado))
+                 
+#o número digitado pelo usuário, se for pelo numpad ele vai arrumar os números com colchetes
+def Digitando_Numero(numero):
+    try:
+        numero = int(numero[1])
+    except:
+        numero = int(numero)
+    return numero
+
+def Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero):
+    x = click_position_x
+    y = click_position_y
+    
+    # se o clique do mouse for dentro da localização do tabuleiro 0 a 9, se os números escondidos for n então preenche com o número correto
+    # se digitar número errado aparece X
+    if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
+        jogo_data[y][x] = numero
+        numero = 0
+    if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == numero and numero != 0:
+        pass
+    if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'n' and numero != 0:
+        jogo_data[y][x] = 'X'
+        numero = 0
+    if x >= 0 and x <= 8 and y >= 0 and y <= 8 and tabuleiro_data[y][x] == numero and jogo_data[y][x] == 'x' and numero != 0:
+        jogo_data[y][x] = numero
+        numero = 0
+    return jogo_data, numero
+    
+    
 
 while True:
     for event in pg.event.get():
@@ -249,9 +303,14 @@ while True:
     # Jogo
     Tabuleiro_Hover(window, mouse_position_x, mouse_position_y)
     click_position_x, click_position_y = Celula_Selecionada(window, mouse_position_x, mouse_position_y, click_last_status, click[0],
-                                                            click_position_x, click_position_y)
+    click_position_x, click_position_y)
     Tabuleiro(window)
     Botao_Restart(window)
+    tabuleiro_data, tabuleiro_preenchido = Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido)
+    jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, escondendo_numeros)
+    Escrevendo_Numeros(window, jogo_data)
+    numero = Digitando_Numero(numero)
+    jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
     
     
     
