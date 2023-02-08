@@ -326,7 +326,7 @@ while True:
     Escrevendo_Numeros(window, jogo_data)
     numero = Digitando_Numero(numero)
     jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
-    tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data = Click_bt_Restart(mouse_position_x, mouse_position_y, click_last_status, click, tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data)
+    tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data = Click_bt_Restart(mouse_position_x, mouse_position_y, click_last_status, click[0], tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data)
     
     
     
