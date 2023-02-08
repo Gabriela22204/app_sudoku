@@ -65,7 +65,7 @@ def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
 def Celula_Selecionada(window, mouse_position_x, mouse_position_y, click_last_status, click, x, y):
     quadrado = 66.7
     ajuste = 50
-    if click_last_status == True and click == True: # armazena a posição de clique do mouse numa variável
+    if click_last_status == True and click == True: # armazena a posicao de clique do mouse numa var
         x = (math.ceil((mouse_position_x - ajuste) / quadrado) - 1)
         y = (math.ceil((mouse_position_y - ajuste) / quadrado) - 1)
     if x >= 0 and x <= 8 and y >= 0 and y <= 8:
