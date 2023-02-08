@@ -1,7 +1,9 @@
+# coding:utf-8
 import pygame as pg
 import pandas as pd
 import random
 import math
+
 
 # cores
 preto = (0, 0, 0)
@@ -30,23 +32,24 @@ tabuleiro_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
                   ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
                   ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
 
-# tabuleiro com alguns números em branco
+# números preenchidos em branco
 jogo_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-            ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+             ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
+
 
 escondendo_numeros = True # loop
 tabuleiro_preenchido = True # loop
-click_last_status = False
+click_last_status = False 
 click_position_x = -1 # posição do clique do mouse (-1 é fora do tabuleiro)
 click_position_y = -1
-numero = 0 # variável numero vai ignorar o valor 0 pois não existe no sudoku
+numero = 0 # variável criado para ignorar o 0 pois não existe no sudoku
 
 
 # mapear o tabuleiro com mmouse
