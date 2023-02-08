@@ -1,5 +1,4 @@
 import pygame as pg
-import pandas as pd
 import random
 import math
 
@@ -14,6 +13,7 @@ branco = (255, 255, 255)
 
 # setup da tela do jogo
 window = pg.display.set_mode((1000, 700))
+pg.display.set_caption("Sudoku")
 
 # fonte
 pg.font.init()
@@ -307,8 +307,8 @@ while True:
             quit()
         if event.type == pg.KEYDOWN:
             numero = pg.key.name(event.key)
-            
-            
+ 
+
     # declarando var da posicao
     mouse = pg.mouse.get_pos()
     mouse_position_x = mouse[0]
@@ -324,7 +324,7 @@ while True:
     Tabuleiro(window)
     Botao_Restart(window)
     tabuleiro_data, tabuleiro_preenchido = Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido)
-    jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, escondendo_numeros)
+    jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, jogo_data, escondendo_numeros)
     Escrevendo_Numeros(window, jogo_data)
     numero = Digitando_Numero(numero)
     jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
