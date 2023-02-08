@@ -141,7 +141,7 @@ def Quadrante_Selecionado(tabuleiro_data, x, y):
                           tabuleiro_data[8][6], tabuleiro_data[8][7], tabuleiro_data[8][8]])
     return quadrante
 
-# vai preencher os números de quadrantes chamadas  
+# vai preencher os números de quadrantes chamadas(ex quadrante 1, 2, 3...)  
 def Preenchendo_Quadrantes(tabileiro_data, x2, y2):
     quadrante_preenchido = True
     loop = 0
@@ -241,7 +241,9 @@ def Escondendo_Numeros(tabuleiro_data, jogo_data, escondendo_numeros):
         escondendo_numeros = False
     return jogo_data, escondendo_numeros      
 
-#substitui o n por números
+
+#substitui o n de jogo_data e copia, escreve os números dentro dos quadrados
+
 def Escrevendo_Numeros(window, jogo_data):
     quadrado = 66.7
     ajuste = 67
@@ -254,12 +256,13 @@ def Escrevendo_Numeros(window, jogo_data):
                     palavra = font.render(str(jogo_data[nn][n]), True, vermelho)
                     window.blit(palavra, (ajuste + n * quadrado, ajuste - 5 + nn * quadrado))
                  
-#o número digitado pelo usuário, se for pelo numpad ele vai arrumar os números com colchetes
+#corrige o número digitado (caso for no numpad com números com colchetes) para número padrão
+
 def Digitando_Numero(numero):
     try:
-        numero = int(numero[1])
+        numero = int(numero[1]) # numpad
     except:
-        numero = int(numero)
+        numero = int(numero) # num normal
     return numero
 
 def Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero):
@@ -317,6 +320,7 @@ while True:
     Botao_Restart(window)
     tabuleiro_data, tabuleiro_preenchido = Gabarito_do_Tabuleiro(tabuleiro_data, tabuleiro_preenchido)
     jogo_data, escondendo_numeros = Escondendo_Numeros(tabuleiro_data, escondendo_numeros)
+    
     Escrevendo_Numeros(window, jogo_data)
     numero = Digitando_Numero(numero)
     jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
