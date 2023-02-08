@@ -281,7 +281,16 @@ def Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_
         numero = 0
     return jogo_data, numero
     
-    
+def Click_bt_Restart(mouse_position_x, mouse_position_y, click_last_status, click, tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data):
+    x = mouse_position_x
+    y = mouse_position_y
+    if x >= 700 and x <= 950 and y >= 50 and y <= 150 and click_last_status == False and click == True:
+        tabuleiro_preenchido = True
+        escondendo_numeros = True
+        tabuleiro_data = Reiniciando_Tabuleiro_Data(tabuleiro_data)
+        jogo_data = Reiniciando_Tabuleiro_Data(jogo_data)
+    return tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data
+
 
 while True:
     for event in pg.event.get():
@@ -311,6 +320,8 @@ while True:
     Escrevendo_Numeros(window, jogo_data)
     numero = Digitando_Numero(numero)
     jogo_data, numero = Checando_Numero_Digitado(tabuleiro_data, jogo_data, click_position_x, click_position_y, numero)
+    tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data = Click_bt_Restart(mouse_position_x, mouse_position_y, click_last_status, click, tabuleiro_preenchido, escondendo_numeros, tabuleiro_data, jogo_data)
+    
     
     
     
