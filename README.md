@@ -8,4 +8,10 @@ Dificulty: medium/hard
 
 Developed using Python and Pygame module.
 
+# Future update:
+
+- need to add finish buttom
+- a timer 
+- color theme
+
 
