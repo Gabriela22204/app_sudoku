@@ -145,7 +145,7 @@ def Quadrante_Selecionado(tabuleiro_data, x, y):
     return quadrante
 
 # vai preencher os numeros de quadrantes chamadas(ex quadrante 1, 2, 3...)  
-def Preenchendo_Quadrantes(tabileiro_data, x2, y2):
+def Preenchendo_Quadrantes(tabuleiro_data, x2, y2):
     quadrante_preenchido = True
     loop = 0
     try_count = 0
@@ -157,7 +157,7 @@ def Preenchendo_Quadrantes(tabileiro_data, x2, y2):
         coluna_sorteada = Coluna_Escolhida(tabuleiro_data, x)
         quadrante = Quadrante_Selecionado(tabuleiro_data, x, y)
         if tabuleiro_data[y][x] == 'n' and numero not in linha_sorteada and numero not in coluna_sorteada and numero not in quadrante:
-            tabileiro_data[y][x] = numero
+            tabuleiro_data[y][x] = numero
             numero += 1
         loop += 1
         if loop == 50:
@@ -186,14 +186,15 @@ def Preenchendo_Quadrantes(tabileiro_data, x2, y2):
 # limpa e reinicia
 def Reiniciando_Tabuleiro_Data(tabuleiro_data):
     tabuleiro_data = [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
-                    ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
+                      ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']]
+                      
     return tabuleiro_data
 
 # preenche o tabuleiro com os numeros corretos
