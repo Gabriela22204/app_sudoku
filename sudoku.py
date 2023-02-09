@@ -103,7 +103,7 @@ def Coluna_Escolhida(tabuleiro_data, x):
         coluna_sorteada.append(tabuleiro_data[n][x])
     return coluna_sorteada
 
-# verifica onde esta o numero dentro do tabuleiro de 0 a 8
+# verifica onde esta x e y o numero dentro do tabuleiro de 0 a 8
 def Quadrante_Selecionado(tabuleiro_data, x, y):
     quadrante = []
     if x >= 0 and x <=2 and y >= 0 and y <= 2: # primeiro quadrante
