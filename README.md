@@ -1,6 +1,6 @@
 # Sudoku
 
-This is a Sudoku game.
+This is a simple basic Sudoku game.
 
 Generates around of 40 random combination of numbers.
 
@@ -10,8 +10,8 @@ Developed using Python and Pygame module.
 
 # Future update:
 
-- need to add finish buttom
-- a timer 
-- color theme
+- Finish buttom
+- Timer 
+- Color theme option
 
 
