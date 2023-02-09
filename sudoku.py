@@ -3,6 +3,7 @@ import random
 import math
 
 
+
 # cores
 preto = (0, 0, 0)
 vermelho = (255, 0, 0)
