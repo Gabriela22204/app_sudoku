@@ -9,18 +9,3 @@ Dificulty: medium/hard
 Developed using Python and Pygame module.
 
 
-
-```
- + ---------------------------- + 
-|  2   1                         |
-|                                |
-|                                |
-|  5   4                         |
-|                                |
-|                                |
-|                                |
-|                                |
-|                          9     |
- + ---------------------------- +
-
-```
