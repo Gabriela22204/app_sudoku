@@ -3,8 +3,12 @@ import random
 import math
 
 # Altura e largura da tela
-Screen_Height = 1000
-Sceen_Width = 700
+Screen_Height = 1024
+Screen_Width = 768
+
+# setup da tela do jogo
+window = pg.display.set_mode((Screen_Height, Screen_Width))
+pg.display.set_caption("Sudoku")
 
 # cores
 preto = (0, 0, 0)
@@ -14,10 +18,6 @@ azul_claro = (200, 200, 255)
 azul = (100, 100, 255)
 branco = (255, 255, 255)
 azul_pastel = (52, 235, 235)
-
-# setup da tela do jogo
-window = pg.display.set_mode((Screen_Height, Sceen_Width))
-pg.display.set_caption("Sudoku")
 
 # fonte
 pg.font.init()
@@ -61,7 +61,7 @@ def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
     ajuste = 50 # arredondar pra 50
     x = (math.ceil((mouse_position_x - ajuste) / quadrado) - 1) # tem valor 0 a 8
     y = (math.ceil((mouse_position_y - ajuste) / quadrado) - 1)
-    pg.draw.rect(window, branco, (0, 0, 1000, 700))
+    pg.draw.rect(window, branco, (0, 0, Screen_Height, Screen_Width))
     if x >= 0 and x <= 8 and y >= 0 and y <= 8:
         pg.draw.rect(window, azul_claro, ((ajuste + x * quadrado, ajuste + y * quadrado, quadrado, quadrado)))
 
@@ -90,9 +90,9 @@ def Tabuleiro(window):
 
 # botao restart
 def Botao_Restart(window):
-    pg.draw.rect(window, azul_pastel, (700, 50, 250, 100))
+    pg.draw.rect(window, azul_pastel, (700, 50, 300, 100))
     palavra = font.render('Novo jogo', True, branco)
-    window.blit(palavra, (725, 75))
+    window.blit(palavra, (715, 75))
 
 # verifica os numeros que estao na linha escolhida
 def Linha_Escolhida(tabuleiro_data, y):
