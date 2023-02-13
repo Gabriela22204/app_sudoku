@@ -1,0 +1,43 @@
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+.container .btn:hover {
+  background-color: black;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: transparent;
+  padding: 0px;
+}
+
+body {
+  background: #dde5e6;
+  background: -webkit-linear-gradient(to right, #dde5e6, #81ddeb);
+  background: linear-gradient(to right, #dde5e6, #81ddeb);
+  min-height: 100vh;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

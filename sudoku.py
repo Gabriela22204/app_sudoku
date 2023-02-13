@@ -18,6 +18,7 @@ azul_claro = (200, 200, 255)
 azul = (100, 100, 255)
 branco = (255, 255, 255)
 azul_pastel = (52, 235, 235)
+cor_fundo = (202, 228, 241)
 
 # fonte
 pg.font.init()
@@ -61,7 +62,7 @@ def Tabuleiro_Hover(window, mouse_position_x, mouse_position_y):
     ajuste = 50 # arredondar pra 50
     x = (math.ceil((mouse_position_x - ajuste) / quadrado) - 1) # tem valor 0 a 8
     y = (math.ceil((mouse_position_y - ajuste) / quadrado) - 1)
-    pg.draw.rect(window, branco, (0, 0, Screen_Height, Screen_Width))
+    pg.draw.rect(window, cor_fundo, (0, 0, Screen_Height, Screen_Width))
     if x >= 0 and x <= 8 and y >= 0 and y <= 8:
         pg.draw.rect(window, azul_claro, ((ajuste + x * quadrado, ajuste + y * quadrado, quadrado, quadrado)))
 
@@ -88,11 +89,17 @@ def Tabuleiro(window):
     pg.draw.rect(window, preto, (317, 50, 67, 600), 2)
     pg.draw.rect(window, preto, (517, 50, 67, 600), 2)
 
-# botao restart
-def Botao_Restart(window):
-    pg.draw.rect(window, azul_pastel, (700, 50, 300, 100))
-    palavra = font.render('Novo jogo', True, branco)
-    window.blit(palavra, (715, 75))
+class Button():
+    # botao restart
+    def Botao_Restart(window):
+        pg.draw.rect(window, azul_pastel, (700, 50, 300, 100))
+        palavra = font.render('Novo jogo', True, branco)
+        window.blit(palavra, (715, 75))
+    
+    def Botao_Exit(window):
+        pg.draw.rect(window, azul_pastel, (696, 50, 300, 100))
+        palavra = font.render('Fechar', True, branco)
+        window.blit(palavra, (700, 60))
 
 # verifica os numeros que estao na linha escolhida
 def Linha_Escolhida(tabuleiro_data, y):
