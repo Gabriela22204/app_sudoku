@@ -89,17 +89,17 @@ def Tabuleiro(window):
     pg.draw.rect(window, preto, (317, 50, 67, 600), 2)
     pg.draw.rect(window, preto, (517, 50, 67, 600), 2)
 
-class Button():
+
     # botao restart
-    def Botao_Restart(window):
-        pg.draw.rect(window, azul_pastel, (700, 50, 300, 100))
-        palavra = font.render('Novo jogo', True, branco)
-        window.blit(palavra, (715, 75))
+def Botao_Restart(window):
+    pg.draw.rect(window, azul_pastel, (700, 50, 300, 100))
+    palavra = font.render('Novo jogo', True, branco)
+    window.blit(palavra, (715, 75))
     
-    def Botao_Exit(window):
-        pg.draw.rect(window, azul_pastel, (696, 50, 300, 100))
-        palavra = font.render('Fechar', True, branco)
-        window.blit(palavra, (700, 60))
+def Botao_Exit(window):
+    pg.draw.rect(window, azul_pastel, (696, 50, 300, 100))
+    palavra = font.render('Fechar', True, branco)
+    window.blit(palavra, (700, 60))
 
 # verifica os numeros que estao na linha escolhida
 def Linha_Escolhida(tabuleiro_data, y):
