@@ -8,6 +8,10 @@ Dificulty: medium/hard
 
 Developed using Python and Pygame module.
 
+# How to install:
+
+- Soon put an insctruction here.
+
 # Future update:
 
 - Finish buttom
